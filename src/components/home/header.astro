@@ -1,10 +1,7 @@
 ---
 import UserTag from "../common/UserTag";
+import SaveMoment from "../common/SaveMoment";
 import { ArrowDown } from "lucide-react";
-function getRandomNumber(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-const COUNT_FIREWORKS = getRandomNumber(8, 10);
 ---
 
 <header class="header">
@@ -21,10 +18,12 @@ const COUNT_FIREWORKS = getRandomNumber(8, 10);
         <UserTag client:visible />
       </div>
     </nav>
+
     <div class="header-content">
       <div class="header-content__logo">
         <img class="logo" src="/assets/header-bg2.svg" alt="Nordicos Logo" />
       </div>
+      <SaveMoment client:visible />
       <div class="header-content__text">
         <h1>NORDICOS <br /> AWARDS</h1>
       </div>
@@ -33,7 +32,9 @@ const COUNT_FIREWORKS = getRandomNumber(8, 10);
       <ArrowDown size="40" />
     </div>
   </div>
-  {Array.from({ length: COUNT_FIREWORKS }).map((_, index) => <div class="firework" />)}
+  <div class="firework"></div>
+  <div class="firework"></div>
+  <div class="firework"></div>
 </header>
 
 <script>
@@ -130,12 +131,14 @@ const COUNT_FIREWORKS = getRandomNumber(8, 10);
     display: flex;
     list-style: none;
     gap: 10px;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .container .navigation .menu ol li a {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
   }
 
   .container .navigation .menu ol li a:hover {
@@ -149,8 +152,8 @@ const COUNT_FIREWORKS = getRandomNumber(8, 10);
 
   .header-content__text h1 {
     position: relative;
-    top: -10vh;
-    font-size: 5rem;
+    top: -4vh;
+    font-size: 3rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -217,7 +220,7 @@ const COUNT_FIREWORKS = getRandomNumber(8, 10);
     }
 
     header .header-content__text h1 {
-      font-size: 6rem;
+      font-size: 3rem;
     }
 
     header .header-content__logo img {
@@ -250,18 +253,19 @@ const COUNT_FIREWORKS = getRandomNumber(8, 10);
   .firework,
   .firework::before,
   .firework::after {
+    overflow: hidden;
     --initialSize: 0.5vmin;
     --finalSize: 45vmin;
-    --particleSize: 0.2vmin;
+    --particleSize: 0.4vmin;
     --color1: yellow;
     --color2: khaki;
     --color3: white;
     --color4: lime;
     --color5: gold;
     --color6: mediumseagreen;
-    --y: -30vmin;
+    --y: -60vmin;
     --x: -50%;
-    --initialY: 60vmin;
+    --initialY: 40vmin;
     content: "";
     animation: firework 2s infinite;
     position: absolute;

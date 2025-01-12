@@ -5,9 +5,13 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --primary-color: #7e1891;
-  --secondary-color: #2ecc71;
+  --secondary-color: #ccbc2e;
   --font-size: 16px;
   --padding: 10px;
   --border-radius: 5px;
@@ -18,4 +22,10 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: var(--padding);
+}
+
+/*Remove scroll bar*/
+
+body::-webkit-scrollbar {
+  display: none;
 }
