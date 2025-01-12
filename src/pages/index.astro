@@ -1,8 +1,10 @@
 ---
 import "../styles/global.css";
 import Header from "../components/home/header.astro";
+import About from "../components/about";
 ---
 
 <div>
   <Header />
+  <About client:visible />
 </div>
