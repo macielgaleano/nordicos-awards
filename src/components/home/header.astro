@@ -1,0 +1,174 @@
+---
+import UserTag from "../common/UserTag";
+import { ArrowDown } from "lucide-react";
+---
+
+<header class="header">
+  <div class="container">
+    <nav class="navigation">
+      <div class="menu">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#moments">Momentos</a></li>
+          <li><a href="#categories">Categorias</a></li>
+          <li><a class="text-disabled">Votacion</a></li>
+        </ol>
+        <UserTag client:visible />
+      </div>
+    </nav>
+    <div class="header-content">
+      <div class="header-content__logo">
+        <img class="logo" src="/assets/header-bg2.svg" alt="Nordicos Logo" />
+      </div>
+      <div class="header-content__text">
+        <h1>NORDICOS <br /> AWARDS</h1>
+      </div>
+    </div>
+    <div class="arrow-down">
+      <ArrowDown size="40" />
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    background: url("/assets/header-bg.png") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    filter: ;
+    justify-content: center;
+    color: white;
+  }
+  /* Heder box opacity */
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  header .header-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+  }
+
+  .header-content__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-content__logo img {
+    width: 50vw;
+  }
+
+  header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .container .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .container .navigation .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .container .navigation .menu ol {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    font-size: 1.2rem;
+  }
+
+  .container .navigation .menu ol li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .container .navigation .menu ol li a:hover {
+    color: var(--primary-color);
+  }
+
+  .text-disabled {
+    color: #ccc !important;
+    cursor: not-allowed !important;
+  }
+
+  .header-content__text h1 {
+    position: relative;
+    top: -10vh;
+    font-size: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-text-stroke: 2px var(--primary-color);
+  }
+
+  .arrow-down {
+    position: relative;
+    top: -100px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @media (max-width: 1000px) {
+    header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .header-content__text h1 {
+      font-size: 3rem;
+      top: -5vh;
+    }
+    .header .navigation .menu ol {
+      display: none !important;
+    }
+
+    .header .header-content__logo img {
+      width: 80vw;
+    }
+
+    .header .navigation .menu {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+  }
+</style>

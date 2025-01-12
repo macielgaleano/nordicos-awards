@@ -1,10 +1,8 @@
 ---
-import ExampleComponent from "../components/ExampleComponent.jsx";
-
-layout: "../layouts/MainLayout.astro";
-title: "Home";
+import "../styles/global.css";
+import Header from "../components/home/header.astro";
 ---
 
-<h1>Welcome to My Astro React TypeScript App</h1>
-<p>This is the main entry point of the application.</p>
-<ExampleComponent title="Example Component" description="This is an example component." />
+<div>
+  <Header />
+</div>

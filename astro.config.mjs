@@ -3,10 +3,6 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  integrations: [
-    react({
-      include: ["**/react/*"],
-    }),
-  ],
+  integrations: [react()],
   // Your updated configuration options here
 });
