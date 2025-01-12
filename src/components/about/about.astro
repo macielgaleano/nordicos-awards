@@ -1,0 +1,23 @@
+---
+import { getUsers, User } from "../../network/users";
+import "./index.css";
+const users = await getUsers();
+console.log(users);
+---
+
+<div class="about" id="about">
+  <h1>Nosotros, los <span>participantes</span></h1>
+  <div class="users">
+    {
+      [...users].map((user: User) => (
+        <div class="user">
+          <img src={user.image_url} alt={user.name} />
+          <h2>
+            {user.name} {user.lastname}
+          </h2>
+          <p>" {user.caption} "</p>
+        </div>
+      ))
+    }
+  </div>
+</div>

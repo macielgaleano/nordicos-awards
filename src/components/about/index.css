@@ -2,7 +2,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
   background-color: #23222d;
+  padding-bottom: 60px;
+}
+
+.about h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 4cqh;
+  margin-top: 3rem;
+}
+
+.about h1 span {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+
+  gap: 20px;
+}
+
+.user {
+  background: #131313;
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  padding: 20px;
+  color: #fff;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.user img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.user h2 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.user p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
 }
