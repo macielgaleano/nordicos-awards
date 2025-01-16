@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #23222d;
+  background-color: hsl(245, 14%, 15%);
   padding-bottom: 60px;
 }
 
@@ -11,6 +11,7 @@
   font-size: 2.5rem;
   margin-bottom: 4cqh;
   margin-top: 3rem;
+  text-align: center;
 }
 
 .about h1 span {
@@ -19,26 +20,30 @@
 }
 
 .users {
-  display: flex;
-  flex-direction: row;
-
+  display: grid;
+  /* Responsive columns */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  justify-content: center;
 }
 
 .user {
-  background: #131313;
+  background: #202020;
   display: flex;
   flex-direction: column;
-  width: 270px;
   padding: 20px;
   color: #fff;
   align-items: center;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .user img {
   width: 100%;
   border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
 }
 
 .user h2 {
@@ -50,4 +55,10 @@
   margin-top: 1rem;
   font-size: 1rem;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .users {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
