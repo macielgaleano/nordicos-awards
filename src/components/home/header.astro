@@ -20,14 +20,11 @@ import "./index.css";
       </div>
     </nav>
 
-    <!-- <div class="header-content">
+    <div class="header-content">
       <div class="header-content__logo">
         <img class="logo" src="/assets/header-bg2.svg" alt="Nordicos Logo" />
       </div>
       <SaveMoment client:load />
-      <div class="header-content__text">
-        <h1>NORDICOS <br /> AWARDS</h1>
-      </div>
     </div>
     <div class="arrow-down" id="arrow-down">
       <ArrowDown size="40" />
@@ -35,17 +32,16 @@ import "./index.css";
   </div>
   <div class="firework"></div>
   <div class="firework"></div>
-  <div class="firework"></div> -->
-  </div>
-
-  <script>
-    const arrowDown = document.getElementById("arrow-down");
-
-    arrowDown?.addEventListener("click", () => {
-      const about: any = document.getElementById("about");
-      about.scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  </script>
+  <div class="firework"></div>
 </header>
+
+<script>
+  const arrowDown = document.getElementById("arrow-down");
+
+  arrowDown?.addEventListener("click", () => {
+    const about: any = document.getElementById("about");
+    about.scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+</script>

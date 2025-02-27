@@ -8,6 +8,7 @@ import { Button, Checkbox, Form, Input } from "antd";
 import { verifyPassword } from "../../../utils/passwords";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useSession from "../../../hooks/useSession";
 
 type FieldType = {
   username?: string;
@@ -16,23 +17,10 @@ type FieldType = {
 };
 
 const UserTag = () => {
-  interface User {
-    name?: string;
-    image_url?: string;
-    lastname?: string;
-  }
-
-  const [dataUser, setDataUser] = useState<User>({});
+  const { dataUser, clearSession, setUser } = useSession();
   const isLogged = Boolean(dataUser?.name);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const keySession = "session";
-
-  useEffect(() => {
-    const session = localStorage.getItem(keySession);
-    if (session) {
-      setDataUser(JSON.parse(session));
-    }
-  }, []);
 
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     toast("Iniciando sesión...");
@@ -42,12 +30,12 @@ const UserTag = () => {
       .eq("username", values.username);
     const user = users?.[0];
     if (error) return console.error("Error fetching user", error);
-    if (!user) return console.error("User not found");
+    if (!user) return toast.error("Usuario no encontrado");
     const verify =
       values.password && (await verifyPassword(values.password, user.password));
     if (!verify) return toast.error("Contraseña incorrecta");
     localStorage.setItem(keySession, JSON.stringify(user));
-    setDataUser(user);
+    setUser(user);
     setIsModalOpen(false);
     toast.success("Sesión iniciada correctamente");
   };
@@ -56,14 +44,14 @@ const UserTag = () => {
     console.log("Failed:", errorInfo);
   };
 
-  const clearSession = () => {
-    setDataUser({});
+  const clearSessionFnc = () => {
+    clearSession();
     localStorage.removeItem(keySession);
     toast.success("Sesión cerrada correctamente");
   };
 
   const showModal = () => {
-    if (dataUser?.name) return clearSession();
+    if (dataUser?.name) return clearSessionFnc();
     return setIsModalOpen(true);
   };
   const handleOk = () => setIsModalOpen(false);
