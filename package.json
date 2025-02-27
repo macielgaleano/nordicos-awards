@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.1.2",
-    "antd": "^5.23.0",
+    "antd": "^5.23.1",
     "astro": "^2.0.0",
     "aws-sdk": "^2.1692.0",
     "axios": "^1.7.9",

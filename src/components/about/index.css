@@ -4,6 +4,7 @@
   align-items: center;
   background-color: hsl(245, 14%, 15%);
   padding-bottom: 60px;
+  width: 100%;
 }
 
 .about h1 {
@@ -25,6 +26,8 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .user {
@@ -60,5 +63,17 @@
 @media screen and (min-width: 768px) {
   .users {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .users {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .users {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
